@@ -1,15 +1,24 @@
+import Header from "@/components/Header/Header";
 import "./globals.css";
 
 export const metadata = {
-  title: "IMDb Clone",
+  title: "IMDb",
   description: "Create IMDb clone by next.js and tailwind css",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head></head>
-      <body>{children}</body>
+      <body>
+        {/* header section */}
+        <Header />
+
+        {/* navigation section */}
+
+        {/* search */}
+
+        {children}
+      </body>
     </html>
   );
 }
