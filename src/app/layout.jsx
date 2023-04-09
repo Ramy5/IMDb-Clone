@@ -1,5 +1,6 @@
 import Header from "@/components/Header/Header";
 import "./globals.css";
+import Provider from "./provider";
 
 export const metadata = {
   title: "IMDb",
@@ -10,14 +11,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {/* header section */}
-        <Header />
+        <Provider>
+          {/* header section */}
+          <Header />
 
-        {/* navigation section */}
+          {/* navigation section */}
 
-        {/* search */}
+          {/* search */}
 
-        {children}
+          {children}
+        </Provider>
       </body>
     </html>
   );

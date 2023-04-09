@@ -1,7 +1,9 @@
 import React from "react";
-import PagesLink from "./PageLinks";
 import Link from "next/link";
-import { AiFillHome, BsInfoCircleFill } from "react-icons/all";
+import { AiFillHome } from "react-icons/ai";
+import { BsInfoCircleFill } from "react-icons/bs";
+import PagesLink from "./PageLinks";
+import PageMode from "./PageMode";
 
 const Header = () => {
   return (
@@ -11,7 +13,8 @@ const Header = () => {
         <PagesLink url="/about" title="about" Icon={BsInfoCircleFill} />
       </div>
 
-      <div>
+      <div className="flex items-center space-x-4">
+        <PageMode />
         <Link href="/">
           <h1>
             <span className="text-2xl bg-cyan-500 px-2 py-1 rounded-lg text-white font-bold mr-1">
