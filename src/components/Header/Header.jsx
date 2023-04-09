@@ -16,12 +16,12 @@ const Header = () => {
       <div className="flex items-center space-x-4">
         <PageMode />
         <Link href="/">
-          <h1>
+          <h2>
             <span className="text-2xl bg-cyan-500 px-2 py-1 rounded-lg text-white font-bold mr-1">
               IMDb
             </span>
             <span className="text-xl hidden sm:inline">Clone</span>
-          </h1>
+          </h2>
         </Link>
       </div>
     </header>
