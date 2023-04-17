@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 const Error = ({ error, reset }) => {
   useEffect(() => {
     console.log(error.message);
-  }, [error, reset]);
+  }, [error]);
 
   return (
     <div className="m-auto mt-8 text-xl w-60 text-center">
