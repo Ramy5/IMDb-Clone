@@ -28,7 +28,7 @@ const Home = async ({ searchParams }) => {
       </div>
     );
   } catch (err) {
-    <p>{err.message}</p>;
+    return <p>{err.message}</p>;
   }
 };
 
