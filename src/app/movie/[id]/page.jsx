@@ -42,7 +42,7 @@ const MoviePage = async ({ params }) => {
           </p>
           <p className="mt-2">
             <span className="text-xl font-semibold text-cyan-500 mr-1">
-              Production countrie:
+              Production country:
             </span>
             {data.production_countries[0]?.name || "Not available"}
           </p>

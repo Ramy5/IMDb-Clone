@@ -10,15 +10,15 @@ const ResultItems = ({ results }) => {
     <Card>
       <Link href={`/movie/${results.id}`}>
         <Image
-          className="rounded-t-lg group-hover:opacity-70 transition-opacity duration-200"
+          className="rounded-t-lg group-hover:opacity-70 transition-opacity duration-200 overflow-hidden"
           src={`https://image.tmdb.org/t/p/w500${
             results.backdrop_path || results.poster_path
           }`}
           width={500}
           height={300}
-          style={{ maxWidth: "100%", height: "auto" }}
+          style={{ maxWidth: "100%", height: "160px" }}
           placeholder="blur"
-          blurDataURL="./spinner.svg"
+          blurDataURL="/spinner.svg"
           alt="Image is not available"
         />
         <div className="px-2">
