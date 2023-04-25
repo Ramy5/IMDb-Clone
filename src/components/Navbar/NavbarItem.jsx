@@ -16,7 +16,7 @@ const NavbarItem = ({ title, param }) => {
   return (
     <>
       <Link
-        className={`hover:text-cyan-500 dark:hover:text-cyan-500 m-6 p-2 dark:text-white ${navigationItemActive}
+        className={`hover:text-cyan-500 dark:hover:text-cyan-500 mx-6 py-2 dark:text-white ${navigationItemActive}
           `}
         href={`/?page=${param}`}
       >
