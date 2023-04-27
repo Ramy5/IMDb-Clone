@@ -28,11 +28,13 @@ const Home = async ({ searchParams }) => {
     return (
       <div>
         <Results results={data?.results} />
-        <Pagination totalPages={data?.total_pages} />
+        {data?.total_results >= 1 && (
+          <Pagination totalPages={data?.total_pages} />
+        )}
       </div>
     );
   } catch (err) {
-    return <p>{err.message}</p>;
+    throw new Error(err.message);
   }
 };
 

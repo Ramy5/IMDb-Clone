@@ -1,6 +1,6 @@
 import Header from "@/components/Header/Header";
 import "./globals.css";
-import Provider from "./provider";
+import Provider from "./Provider";
 import Navbar from "@/components/Navbar/Navbar";
 import SearchBox from "@/components/Search/SearchBox";
 

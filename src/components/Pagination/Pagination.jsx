@@ -1,12 +1,13 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 
 const Pagination = ({ totalPages }) => {
   const router = useRouter();
   const fetchPage = useSearchParams();
+  const pathName = usePathname();
   const currentPage = fetchPage.get("page");
 
   const [page, setPage] = useState(1);
@@ -17,7 +18,7 @@ const Pagination = ({ totalPages }) => {
   };
 
   const pageBackHandler = () => {
-    if (page < 1) return;
+    if (page === 1) return;
     setPage((prevPage) => --prevPage);
   };
 
@@ -26,8 +27,14 @@ const Pagination = ({ totalPages }) => {
   }, [currentPage]);
 
   useEffect(() => {
-    router.push(`/?page=${currentPage || "fetchTrending"}&pageNumber=${page}`);
-  }, [page, router, currentPage]);
+    if (pathName === "/") {
+      router.push(
+        `/?page=${currentPage || "fetchTrending"}&pageNumber=${page}`
+      );
+    } else {
+      router.push(`${pathName}/?pageNumber=${page}`);
+    }
+  }, [page, router, currentPage, pathName]);
 
   return (
     <div className="flex justify-center items-center py-12">

@@ -27,12 +27,12 @@ const ResultItems = ({ results }) => {
             {results?.title || results?.original_title}
           </h2>
           <div className="flex justify-between items-center flex-wrap">
-            <p>{results?.release_date}</p>
-            <p className="flex items-center">
+            <p className="mt-1">{results?.release_date}</p>
+            <p className="flex items-center mt-1 mx-1">
               <FaRegThumbsUp className="mr-1 text-cyan-500" />
               {results?.vote_count}
             </p>
-            <p className="flex items-center">
+            <p className="flex items-center mt-1">
               <AiFillStar className="text-amber-500 mr-1" />
               {Number(results?.vote_average).toFixed(1)}
             </p>

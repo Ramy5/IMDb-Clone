@@ -27,7 +27,7 @@ const MoviePage = async ({ params }) => {
           height={400}
           style={{ maxWidth: "100%", height: "100%" }}
           placeholder="blur"
-          blurDataURL="spinner.svg"
+          blurDataURL="/spinner.svg"
           alt="Movie Image"
         />
         <div className="sm:w-9/12">
