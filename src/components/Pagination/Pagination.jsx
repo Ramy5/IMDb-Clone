@@ -1,14 +1,12 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 
-const Pagination = ({ totalPages }) => {
+const Pagination = ({ totalPages, currentPage }) => {
   const router = useRouter();
-  const fetchPage = useSearchParams();
   const pathName = usePathname();
-  const currentPage = fetchPage.get("page");
 
   const [page, setPage] = useState(1);
 
@@ -28,9 +26,7 @@ const Pagination = ({ totalPages }) => {
 
   useEffect(() => {
     if (pathName === "/") {
-      router.push(
-        `/?page=${currentPage || "fetchTrending"}&pageNumber=${page}`
-      );
+      router.push(`/?page=${currentPage}&pageNumber=${page}`);
     } else {
       router.push(`${pathName}/?pageNumber=${page}`);
     }
