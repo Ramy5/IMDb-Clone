@@ -13,7 +13,8 @@ const Home = async ({ searchParams }) => {
   else if (page === "fetchTrending") pageParamsCheck = "trending/movie/week";
 
   const res = await fetch(
-    `https://api.themoviedb.org/3/${pageParamsCheck}?api_key=${process.env.API_KEY}&language=en-Us&page=${pageNumber}`
+    `https://api.themoviedb.org/3/${pageParamsCheck}?api_key=${process.env.API_KEY}&language=en-Us&page=${pageNumber}`,
+    { next: { revalidate: 3000 } }
   );
 
   if (!res.ok) throw new Error("Failed to fetch data!");
