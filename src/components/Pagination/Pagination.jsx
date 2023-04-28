@@ -28,7 +28,9 @@ const Pagination = ({ totalPages }) => {
 
   useEffect(() => {
     if (pathName === "/") {
-      router.push(`/?page=${currentPage}&pageNumber=${page}`);
+      router.push(
+        `/?page=${currentPage || "fetchTrending"}&pageNumber=${page}`
+      );
     } else {
       router.push(`${pathName}/?pageNumber=${page}`);
     }
