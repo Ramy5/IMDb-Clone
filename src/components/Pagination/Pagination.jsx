@@ -8,45 +8,45 @@ const Pagination = ({ totalPages, currentPage }) => {
   const router = useRouter();
   const pathName = usePathname();
 
-  const [page, setPage] = useState(1);
+  const [pageNumber, setPageNumber] = useState(1);
 
   const pageForwardHandler = () => {
-    if (page === totalPages) return;
-    setPage((prevPage) => ++prevPage);
+    if (pageNumber === totalPages) return;
+    setPageNumber((prevPage) => ++prevPage);
   };
 
   const pageBackHandler = () => {
-    if (page === 1) return;
-    setPage((prevPage) => --prevPage);
+    if (pageNumber === 1) return;
+    setPageNumber((prevPage) => --prevPage);
   };
 
   useEffect(() => {
-    setPage(1);
+    setPageNumber(1);
   }, [currentPage]);
 
   useEffect(() => {
     if (pathName === "/") {
-      router.push(`/?page=${currentPage}&pageNumber=${page}`);
+      router.push(`/?page=${currentPage}&pageNumber=${pageNumber}`);
     } else {
-      router.push(`${pathName}/?pageNumber=${page}`);
+      router.push(`${pathName}/?pageNumber=${pageNumber}`);
     }
-  }, [page, router, currentPage, pathName]);
+  }, [pageNumber, router, currentPage, pathName]);
 
   return (
-    <div className="flex justify-center items-center py-12">
-      {page > 1 && (
+    <div className="flex justify-center items-center py-12 self-baseline">
+      {pageNumber > 1 && (
         <MdKeyboardArrowLeft
           onClick={pageBackHandler}
-          className="w-8 h-8 rounded-full bg-cyan-500 text-white flex items-center justify-center cursor-pointer transition duration-150 hover:bg-cyan-700"
+          className="w-10 h-10 rounded-lg bg-cyan-500 text-white flex items-center justify-center cursor-pointer transition duration-150 hover:bg-cyan-700"
         />
       )}
-      <span className="mx-6 text-3xl font-semibold select-none text-cyan-500">
-        {page}
+      <span className="mx-5 mb-2 p-1 border-b-4 border-cyan-500 text-3xl font-semibold select-none text-cyan-500">
+        {pageNumber}
       </span>
-      {page < totalPages && (
+      {pageNumber < totalPages && (
         <MdKeyboardArrowRight
           onClick={pageForwardHandler}
-          className="w-8 h-8  rounded-full bg-cyan-500 text-white flex items-center justify-center cursor-pointer transition duration-150 hover:bg-cyan-700"
+          className="w-10 h-10  rounded-lg bg-cyan-500 text-white flex items-center justify-center cursor-pointer transition duration-150 hover:bg-cyan-700"
         />
       )}
     </div>
