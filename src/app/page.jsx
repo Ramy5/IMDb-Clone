@@ -14,7 +14,7 @@ const Home = async ({ searchParams }) => {
 
   const res = await fetch(
     `https://api.themoviedb.org/3/${pageParamsCheck}?api_key=${process.env.API_KEY}&language=en-Us&page=${pageNumber}`,
-    { next: { revalidate: 1000 } }
+    { next: { revalidate: 10 } }
   );
 
   if (!res.ok) throw new Error("Failed to fetch data!");
