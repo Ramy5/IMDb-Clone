@@ -28,9 +28,7 @@ const Pagination = ({ totalPages }) => {
 
   useEffect(() => {
     if (pathName === "/") {
-      router.push(
-        `/?page=${currentPage || "fetchTrending"}&pageNumber=${page}`
-      );
+      router.push(`/?page=${currentPage}&pageNumber=${page}`);
     } else {
       router.push(`${pathName}/?pageNumber=${page}`);
     }
@@ -38,17 +36,21 @@ const Pagination = ({ totalPages }) => {
 
   return (
     <div className="flex justify-center items-center py-12">
-      <MdKeyboardArrowLeft
-        onClick={pageBackHandler}
-        className="w-8 h-8 rounded-full bg-cyan-500 text-white flex items-center justify-center cursor-pointer transition duration-150 hover:bg-cyan-700"
-      />
-      <span className="mx-6 text-2xl font-semibold select-none text-cyan-500">
+      {page > 1 && (
+        <MdKeyboardArrowLeft
+          onClick={pageBackHandler}
+          className="w-8 h-8 rounded-full bg-cyan-500 text-white flex items-center justify-center cursor-pointer transition duration-150 hover:bg-cyan-700"
+        />
+      )}
+      <span className="mx-6 text-3xl font-semibold select-none text-cyan-500">
         {page}
       </span>
-      <MdKeyboardArrowRight
-        onClick={pageForwardHandler}
-        className="w-8 h-8  rounded-full bg-cyan-500 text-white flex items-center justify-center cursor-pointer transition duration-150 hover:bg-cyan-700"
-      />
+      {page < totalPages && (
+        <MdKeyboardArrowRight
+          onClick={pageForwardHandler}
+          className="w-8 h-8  rounded-full bg-cyan-500 text-white flex items-center justify-center cursor-pointer transition duration-150 hover:bg-cyan-700"
+        />
+      )}
     </div>
   );
 };

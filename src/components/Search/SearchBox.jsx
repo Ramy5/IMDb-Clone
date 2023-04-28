@@ -1,12 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 
 const SearchBox = () => {
   const [search, setSearch] = useState("");
   const router = useRouter();
+  const inputRef = useRef(null);
 
   const inputChangeHandler = (e) => setSearch(e.target.value);
 
@@ -15,6 +16,7 @@ const SearchBox = () => {
     if (!search) return;
     router.push(`/search/${search}`);
     setSearch("");
+    inputRef.current.blur();
   };
 
   return (
@@ -24,6 +26,7 @@ const SearchBox = () => {
     >
       <input
         onChange={inputChangeHandler}
+        ref={inputRef}
         value={search}
         type="text"
         name="Search"
