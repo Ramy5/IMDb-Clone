@@ -13,8 +13,8 @@ const Home = async ({ searchParams }) => {
     let pageParamsCheck;
 
     if (page === "fetchTopRated") pageParamsCheck = "movie/top_rated";
-    if (page === "fetchNew") pageParamsCheck = "movie/now_playing";
-    if (page === "fetchTrending") pageParamsCheck = "trending/movie/week";
+    else if (page === "fetchNew") pageParamsCheck = "movie/now_playing";
+    else if (page === "fetchTrending") pageParamsCheck = "trending/movie/week";
 
     const res = await fetch(
       `https://api.themoviedb.org/3/${pageParamsCheck}?api_key=${API_KEY}&language=${language}&page=${pageNumber}`,
